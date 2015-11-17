@@ -29,15 +29,18 @@
 
 .note-search-button,
 .note-create-button,
-.note-delete-button {
+.note-delete-button,
+.note-view-button {
     float: right;
 }
 
 .note-delete-button,
+.note-view-button,
 .note-prompt:empty {
     display: none;
 }
 
-.note-item:hover > .note-delete-button {
+.note-item:hover > .note-delete-button,
+.note-item:hover > .note-view-button {
     display: inline-block;
 }

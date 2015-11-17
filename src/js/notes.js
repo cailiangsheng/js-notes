@@ -22,4 +22,8 @@ notesApp.controller('initNotes', ['$scope', 'storage', function ($scope, storage
         $scope.inputText = '';
         $scope.promptText = '';
     };
+
+    $scope.viewNote = function (viewingNote) {
+        console.log("viewing", viewingNote);
+    }
 }]);

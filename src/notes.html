@@ -23,6 +23,7 @@
             <li class="note-item" ng-repeat="note in notes">
                 {{ note.title }}
                 <input type="button" value="Delete" class="note-delete-button" ng-click="deleteNote(note)">
+                <input type="button" value="View" class="note-view-button" ng-click="viewNote(note)">
             </li>
         </ul>
     </div>
