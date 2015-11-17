@@ -1,0 +1,41 @@
+.note-app {
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    background: #cccccc;
+}
+
+.note-app > h1 {
+    text-align: center;
+}
+
+.note-list {
+    list-style: none;
+    padding: 0;
+}
+
+.note-item {
+    padding: 10px;
+}
+
+.note-item:nth-child(odd) {
+    background: #eeeeee;
+}
+
+.note-input {
+    width: 360px;
+}
+
+.note-search-button,
+.note-create-button,
+.note-delete-button {
+    float: right;
+}
+
+.note-delete-button {
+    display: none;
+}
+
+.note-item:hover > .note-delete-button {
+    display: inline-block;
+}

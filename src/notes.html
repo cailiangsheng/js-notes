@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="notesApp" ng-controller="initNotes">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Notes</title>
+    <link rel="stylesheet" href="notes.css">
+
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="js/notes.js"></script>
+    <script src="js/storage.js"></script>
+</head>
+<body>
+    <div class="note-app">
+        <h1>Notes</h1>
+        <ul class="note-list">
+            <li class="note-item note-header">
+                <input type="text" placeholder="Enter note title" class="note-input" ng-model="inputText">
+                <input type="button" value="Create" class="note-create-button" ng-click="createNote(inputText)">
+                <input type="button" value="Search" class="note-search-button" ng-click="searchNote(inputText)">
+            </li>
+            <li class="note-item" ng-repeat="note in notes">
+                {{ note.title }}
+                <input type="button" value="Delete" class="note-delete-button" ng-click="deleteNote(note)">
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

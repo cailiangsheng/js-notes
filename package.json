@@ -1,0 +1,8 @@
+{
+  "name": "js-notes",
+  "version": "0.0.0",
+  "description": "Notes demo implemented with JavaScript",
+  "dependencies": {
+    "angular": "1.4.x"
+  }
+}
