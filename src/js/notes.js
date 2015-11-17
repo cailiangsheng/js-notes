@@ -2,10 +2,21 @@ var notesApp = angular.module('notesApp', ['notesStorage']);
 
 notesApp.controller('initNotes', ['$scope', 'storage', function ($scope, storage) {
     $scope.notes = storage.readNotes();
-    $scope.selectedNoteId = 0;
-    $scope.deleteNote = storage.deleteNote;
-    $scope.createNote = storage.createNote;
-    $scope.searchNote = function (searchText) {
-        $scope.notes = storage.readNotes(searchText);
+
+    $scope.searchNotes = function () {
+        var searchingText = $scope.inputText;
+        $scope.notes = storage.searchNotes(searchingText);
+        $scope.inputText = '';
+    };
+
+    $scope.createNote = function () {
+        var creatingNoteTitle = $scope.inputText || 'Untitled note';
+        $scope.notes = storage.createNote(creatingNoteTitle);
+        $scope.inputText = '';
+    };
+
+    $scope.deleteNote = function (deletingNote) {
+        $scope.notes = storage.deleteNote(deletingNote);
+        $scope.inputText = '';
     };
 }]);

@@ -5,6 +5,7 @@
     <title>Notes</title>
     <link rel="stylesheet" href="notes.css">
 
+    <script src="../node_modules/underscore/underscore-min.js"></script>
     <script src="../node_modules/angular/angular.min.js"></script>
     <script src="js/notes.js"></script>
     <script src="js/storage.js"></script>
@@ -15,8 +16,8 @@
         <ul class="note-list">
             <li class="note-item note-header">
                 <input type="text" placeholder="Enter note title" class="note-input" ng-model="inputText">
-                <input type="button" value="Create" class="note-create-button" ng-click="createNote(inputText)">
-                <input type="button" value="Search" class="note-search-button" ng-click="searchNote(inputText)">
+                <input type="button" value="Create" class="note-create-button" ng-click="createNote()">
+                <input type="button" value="Search" class="note-search-button" ng-click="searchNotes()">
             </li>
             <li class="note-item" ng-repeat="note in notes">
                 {{ note.title }}
