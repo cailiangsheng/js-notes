@@ -51,7 +51,7 @@ notesStorage.factory('storage', function () {
         var newNote = {
             title: creatingNoteTitle || 'Untitled note',
             content: creatingNoteTitle + '\n',
-            timestamp: new Date()
+            timestamp: new Date().getTime()
         };
         notes.unshift(newNote);
         saveNotes(notes);

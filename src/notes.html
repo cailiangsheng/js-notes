@@ -15,9 +15,10 @@
         <h1>Notes</h1>
         <ul class="note-list">
             <li class="note-item note-header">
-                <input type="text" placeholder="Enter note title" class="note-input" ng-model="inputText">
+                <input type="text" placeholder="Enter text to search or title to create" class="note-input" ng-model="inputText">
                 <input type="button" value="Create" class="note-create-button" ng-click="createNote()">
                 <input type="button" value="Search" class="note-search-button" ng-click="searchNotes()">
+                <h5 class="note-prompt">{{ promptText }}</h5>
             </li>
             <li class="note-item" ng-repeat="note in notes">
                 {{ note.title }}
