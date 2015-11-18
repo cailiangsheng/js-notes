@@ -5,8 +5,7 @@
     background: #cccccc;
 }
 
-.note-app > h1,
-.note-prompt {
+.note-app > h1 {
     text-align: center;
 }
 
@@ -23,24 +22,51 @@
     background: #eeeeee;
 }
 
-.note-input {
-    width: 360px;
+.note-input,
+.note-title-edit {
+    width: 415px;
 }
 
-.note-search-button,
 .note-create-button,
 .note-delete-button,
-.note-view-button {
+.note-datetime-text {
     float: right;
 }
 
 .note-delete-button,
-.note-view-button,
-.note-prompt:empty {
+.note-title-edit,
+.note-content-edit,
+.note-content-text:empty,
+.note-item:hover > .note-title-text,
+.note-item:hover > .note-datetime-text,
+.note-item:hover > .note-content-text {
     display: none;
 }
 
+.note-title-text {
+    font-weight: bold;
+}
+
+.note-datetime-text {
+    font-style: italic;
+}
+
+.note-content-text {
+    display: block;
+    overflow-wrap: break-word;
+    overflow-y: hidden;
+}
+
 .note-item:hover > .note-delete-button,
-.note-item:hover > .note-view-button {
+.note-item:hover > .note-title-edit,
+.note-item:hover > .note-content-edit {
     display: inline-block;
+}
+
+.note-content-text,
+.note-content-edit {
+    margin-top: 10px;
+    width: 100%;
+    height: 100px;
+    resize: none;
 }
