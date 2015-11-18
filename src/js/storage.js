@@ -25,9 +25,9 @@ notesStorage.factory('storage', function () {
         if (searchingText) {
             var searchedNotes = []
             _.forEach(notes, function (note) {
-                if (note.title.indexOf(searchingText) >= 0 ||
-                    note.content.indexOf(searchingText) >= 0 ||
-                    note.datetime.indexOf(searchingText) >= 0) {
+                if (note.title && note.title.indexOf(searchingText) >= 0 ||
+                    note.content && note.content.indexOf(searchingText) >= 0 ||
+                    note.datetime && note.datetime.indexOf(searchingText) >= 0) {
                     searchedNotes.push(note);
                 }
             });
