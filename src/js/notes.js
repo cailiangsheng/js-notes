@@ -1,6 +1,7 @@
 var notesApp = angular.module('notesApp', ['notesStorage']);
 
 notesApp.controller('initNotes', ['$scope', 'storage', function ($scope, storage) {
+    $scope.title = "Larry's Notes";
     $scope.notes = storage.readNotes();
 
     $scope.fetchNotes = function () {
@@ -9,7 +10,7 @@ notesApp.controller('initNotes', ['$scope', 'storage', function ($scope, storage
     };
 
     $scope.createNote = function () {
-        var creatingNoteTitle = $scope.inputText || 'Untitled note';
+        var creatingNoteTitle = $scope.inputText;
         $scope.notes = storage.createNote(creatingNoteTitle);
         $scope.inputText = '';
     };
