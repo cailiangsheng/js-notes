@@ -5,9 +5,10 @@ notesStorage.factory('storage', function () {
     return {
         readNotes: readNotes,
         saveNotes: saveNotes,
-        searchNotes: searchNotes,
+        fetchNotes: fetchNotes,
         deleteNote: deleteNote,
-        createNote: createNote
+        createNote: createNote,
+        saveNote: saveNote
     }
 
     function readNotes() {
@@ -19,13 +20,14 @@ notesStorage.factory('storage', function () {
         localStorage.setItem(NOTES_STORAGE_NAME, JSON.stringify(savingNotes))
     }
 
-    function searchNotes(searchingText) {
+    function fetchNotes(searchingText) {
         var notes = readNotes();
         if (searchingText) {
             var searchedNotes = []
             _.forEach(notes, function (note) {
                 if (note.title.indexOf(searchingText) >= 0 ||
-                    note.content.indexOf(searchingText) >= 0) {
+                    note.content.indexOf(searchingText) >= 0 ||
+                    note.datetime.indexOf(searchingText) >= 0) {
                     searchedNotes.push(note);
                 }
             });
@@ -48,13 +50,38 @@ notesStorage.factory('storage', function () {
 
     function createNote(creatingNoteTitle) {
         var notes = readNotes();
+        var timestamp = getTimestamp();
         var newNote = {
             title: creatingNoteTitle || 'Untitled note',
-            content: creatingNoteTitle + '\n',
-            timestamp: new Date().getTime()
+            content: "",
+            timestamp: timestamp,
+            datetime: getLocaleString(timestamp)
         };
         notes.unshift(newNote);
         saveNotes(notes);
+        return notes;
+    }
+
+    function getTimestamp() {
+        return new Date().getTime();
+    }
+
+    function getLocaleString(timestamp) {
+        return new Date(timestamp).toLocaleString();
+    }
+
+    function saveNote(savingNote) {
+        var notes = readNotes();
+        _.forEach(notes, function (note) {
+            if (note.timestamp == savingNote.timestamp) {
+                note.title = savingNote.title;
+                note.content = savingNote.content;
+                note.timestamp = savingNote.timestamp = getTimestamp();
+                note.datetime = savingNote.datetime = getLocaleString(savingNote.timestamp);
+                saveNotes(notes);
+                return notes;
+            }
+        });
         return notes;
     }
 });
