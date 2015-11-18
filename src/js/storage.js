@@ -52,7 +52,7 @@ notesStorage.factory('storage', function () {
         var notes = readNotes();
         var timestamp = getTimestamp();
         var newNote = {
-            title: creatingNoteTitle || 'Untitled note',
+            title: creatingNoteTitle,
             content: "",
             timestamp: timestamp,
             datetime: getLocaleString(timestamp)
