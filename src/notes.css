@@ -2,7 +2,6 @@
     margin-left: auto;
     margin-right: auto;
     width: 500px;
-    background: #cccccc;
 }
 
 .note-app > h1 {
@@ -10,12 +9,16 @@
 }
 
 .note-list {
+    background: #cccccc;
     list-style: none;
     padding: 0;
+    border: solid 1px black;
 }
 
 .note-item {
     padding: 10px;
+    border: solid 1px black;
+    min-height: 19px;
 }
 
 .note-item:nth-child(odd) {
@@ -43,7 +46,8 @@
     display: none;
 }
 
-.note-title-text {
+.note-title-text,
+.note-title-edit {
     font-weight: bold;
 }
 
@@ -66,7 +70,7 @@
 .note-content-text,
 .note-content-edit {
     margin-top: 10px;
-    width: 100%;
+    width: 470px;
     height: 100px;
     resize: none;
 }
