@@ -42,10 +42,8 @@ notesStorage.factory('storage', function () {
             if (deletingNote.timestamp == note.timestamp) {
                 notes = _.without(notes, note);
                 saveNotes(notes);
-                return notes;
             }
         });
-        return notes;
     }
 
     function createNote(creatingNoteTitle) {
@@ -59,7 +57,6 @@ notesStorage.factory('storage', function () {
         };
         notes.unshift(newNote);
         saveNotes(notes);
-        return notes;
     }
 
     function getTimestamp() {
@@ -79,9 +76,7 @@ notesStorage.factory('storage', function () {
                 note.timestamp = savingNote.timestamp = getTimestamp();
                 note.datetime = savingNote.datetime = getLocaleString(savingNote.timestamp);
                 saveNotes(notes);
-                return notes;
             }
         });
-        return notes;
     }
 });
