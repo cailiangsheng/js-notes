@@ -9,15 +9,14 @@
 }
 
 .note-list {
-    background: #cccccc;
     list-style: none;
     padding: 0;
-    border: solid 1px black;
 }
 
 .note-item {
     padding: 10px;
     border: solid 1px black;
+    margin-top: 10px;
     min-height: 19px;
 }
 
@@ -25,9 +24,13 @@
     background: #eeeeee;
 }
 
+.note-item:nth-child(even) {
+    background: #cccccc;
+}
+
 .note-input,
 .note-title-edit {
-    width: 415px;
+    width: 445px;
 }
 
 .note-create-button,
