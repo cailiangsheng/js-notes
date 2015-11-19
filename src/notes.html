@@ -24,7 +24,7 @@
                 <span class="note-datetime-text">{{ getDateTime(note) }}</span>
                 <input type="button" value="x" class="note-delete-button" ng-click="deleteNote(note)">
 
-                <span class="note-content-text">{{ note.content }}</span>
+                <span class="note-content-text" ng-bind-html="note.content | toTextLines"></span>
                 <textarea class="note-content-edit" placeholder="Note content" ng-model="note.content" ng-change="saveNote(note)"></textarea>
             </li>
         </ul>

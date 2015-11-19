@@ -1,6 +1,13 @@
 var notesApp = angular.module('notesApp', ['notesStorage']);
 var KEY_CODE_ENTER = 13;
 
+notesApp.filter('toTextLines', ['$sce', function ($sce) {
+    return function (text) {
+        var lines = text.split("\n").join("<br>");
+        return $sce.trustAsHtml(lines);
+    }
+}]);
+
 notesApp.controller('initNotes', ['$scope', 'storage', function ($scope, storage) {
     $scope.title = "Larry's Notes";
     $scope.notes = storage.readNotes();
