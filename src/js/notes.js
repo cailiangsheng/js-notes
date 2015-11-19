@@ -5,6 +5,10 @@ notesApp.controller('initNotes', ['$scope', 'storage', function ($scope, storage
     $scope.title = "Larry's Notes";
     $scope.notes = storage.readNotes();
 
+    $scope.getDateTime = function (note) {
+        return new Date(note.timestamp).toLocaleString();
+    };
+
     $scope.fetchNotes = function () {
         var searchingText = $scope.inputText;
         $scope.notes = storage.fetchNotes(searchingText);

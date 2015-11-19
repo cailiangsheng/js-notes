@@ -21,7 +21,7 @@
             <li class="note-item" ng-repeat="note in notes">
                 <span class="note-title-text">{{ note.title }}</span>
                 <input type="text" ng-model="note.title" class="note-title-edit" placeholder="Note title" ng-change="saveNote(note)">
-                <span class="note-datetime-text">{{ note.datetime }}</span>
+                <span class="note-datetime-text">{{ getDateTime(note) }}</span>
                 <input type="button" value="x" class="note-delete-button" ng-click="deleteNote(note)">
 
                 <span class="note-content-text">{{ note.content }}</span>

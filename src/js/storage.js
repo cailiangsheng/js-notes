@@ -23,11 +23,10 @@ notesStorage.factory('storage', function () {
     function fetchNotes(searchingText) {
         var notes = readNotes();
         if (searchingText) {
-            var searchedNotes = []
+            var searchedNotes = [];
             _.forEach(notes, function (note) {
                 if (note.title && note.title.indexOf(searchingText) >= 0 ||
-                    note.content && note.content.indexOf(searchingText) >= 0 ||
-                    note.datetime && note.datetime.indexOf(searchingText) >= 0) {
+                    note.content && note.content.indexOf(searchingText) >= 0) {
                     searchedNotes.push(note);
                 }
             });
@@ -48,12 +47,10 @@ notesStorage.factory('storage', function () {
 
     function createNote(creatingNoteTitle) {
         var notes = readNotes();
-        var timestamp = getTimestamp();
         var newNote = {
             title: creatingNoteTitle,
             content: "",
-            timestamp: timestamp,
-            datetime: getLocaleString(timestamp)
+            timestamp: getTimestamp()
         };
         notes.unshift(newNote);
         saveNotes(notes);
@@ -63,10 +60,6 @@ notesStorage.factory('storage', function () {
         return new Date().getTime();
     }
 
-    function getLocaleString(timestamp) {
-        return new Date(timestamp).toLocaleString();
-    }
-
     function saveNote(savingNote) {
         var notes = readNotes();
         _.forEach(notes, function (note) {
@@ -74,7 +67,6 @@ notesStorage.factory('storage', function () {
                 note.title = savingNote.title;
                 note.content = savingNote.content;
                 note.timestamp = savingNote.timestamp = getTimestamp();
-                note.datetime = savingNote.datetime = getLocaleString(savingNote.timestamp);
                 saveNotes(notes);
             }
         });
