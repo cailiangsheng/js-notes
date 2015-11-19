@@ -1,4 +1,5 @@
 var notesApp = angular.module('notesApp', ['notesStorage']);
+var KEY_CODE_ENTER = 13
 
 notesApp.controller('initNotes', ['$scope', 'storage', function ($scope, storage) {
     $scope.title = "Larry's Notes";
@@ -22,5 +23,11 @@ notesApp.controller('initNotes', ['$scope', 'storage', function ($scope, storage
 
     $scope.saveNote = function (savingNote) {
         storage.saveNote(savingNote);
+    }
+
+    $scope.onKeyDown = function (e) {
+        if (e.keyCode == KEY_CODE_ENTER) {
+            $scope.createNote();
+        }
     }
 }]);
