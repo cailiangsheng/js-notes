@@ -15,14 +15,14 @@
         <h1>{{ title }}</h1>
         <ul class="note-list">
             <li class="note-item note-header">
-                <input type="text" placeholder="Enter text to search or title to create" class="note-input" ng-model="inputText" ng-change="fetchNotes()">
-                <input type="button" value="Create" class="note-create-button" ng-click="createNote()">
+                <input type="text" placeholder="Enter text to search or title to add notes" class="note-input" ng-model="inputText" ng-change="fetchNotes()">
+                <input type="button" value="+" class="note-create-button" ng-click="createNote()">
             </li>
             <li class="note-item" ng-repeat="note in notes">
                 <span class="note-title-text">{{ note.title }}</span>
                 <input type="text" ng-model="note.title" class="note-title-edit" placeholder="Note title" ng-change="saveNote(note)">
                 <span class="note-datetime-text">{{ note.datetime }}</span>
-                <input type="button" value="Delete" class="note-delete-button" ng-click="deleteNote(note)">
+                <input type="button" value="x" class="note-delete-button" ng-click="deleteNote(note)">
 
                 <span class="note-content-text">{{ note.content }}</span>
                 <textarea class="note-content-edit" placeholder="Note content" ng-model="note.content" ng-change="saveNote(note)"></textarea>
