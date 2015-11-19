@@ -15,7 +15,7 @@
         <h1>{{ title }}</h1>
         <ul class="note-list">
             <li class="note-item note-header">
-                <input type="text" placeholder="Enter text to search or title to add notes" class="note-input" ng-model="inputText" ng-change="fetchNotes()">
+                <input type="text" placeholder="Type text to search or enter title to create notes" class="note-input" ng-model="inputText" ng-change="fetchNotes()" ng-keydown="onKeyDown($event)">
                 <input type="button" value="+" class="note-create-button" ng-click="createNote()">
             </li>
             <li class="note-item" ng-repeat="note in notes">
