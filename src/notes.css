@@ -21,7 +21,6 @@ body {
     padding: 10px;
     border: solid 1px black;
     margin-top: 10px;
-    min-height: 19px;
 }
 
 .note-item:nth-child(odd) {
@@ -58,12 +57,18 @@ body {
     font-weight: bold;
 }
 
+.note-title-text {
+    width: 310px;
+    height: 19px;
+}
+
 .note-datetime-text {
     font-style: italic;
 }
 
+.note-title-text,
 .note-content-text {
-    display: block;
+    display: inline-block;
     overflow-wrap: break-word;
     overflow-y: hidden;
 }
