@@ -1,3 +1,4 @@
+var notesApp = angular.module('notesApp');
 
 notesApp.filter('toTextLines', ['$sce', function ($sce) {
     return function (text) {
