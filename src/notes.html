@@ -10,6 +10,7 @@
     <script src="js/notes.js"></script>
     <script src="js/persistence.js"></script>
     <script src="js/controller.js"></script>
+    <script src="js/filter.js"></script>
 </head>
 <body>
     <div class="note-app">
@@ -23,7 +24,7 @@
                 <span class="note-title-text">{{ note.title }}</span>
                 <input type="text" ng-model="note.title" class="note-title-edit" placeholder="Note title" ng-change="updateNote(note)">
 
-                <span class="note-datetime-text">{{ getDateTime(note) }}</span>
+                <span class="note-datetime-text" ng-bind-html="note.timestamp | toDateTime"></span>
                 <input type="button" value="x" class="note-delete-button" ng-click="deleteNote(note)">
 
                 <span class="note-content-text" ng-bind-html="note.content | toTextLines"></span>
