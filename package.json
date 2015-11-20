@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "Notes demo implemented with AngularJS",
   "dependencies": {
-    "angular": "1.4.x",
-    "underscore": "*"
+    "angular": "1.4.x"
   }
 }

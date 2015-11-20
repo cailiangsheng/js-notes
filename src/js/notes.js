@@ -1,15 +1,24 @@
 
 function Notes () {
-    this.notes = [];
+    this.items = [];
 }
 
 Notes.prototype.clearNotes = function () {
-    this.notes.length = 0;
+    this.items.length = 0;
 };
 
+Notes.prototype.initNotes = function (arr) {
+    this.clearNotes();
+    for (var i = 0; i < arr.length; i++) {
+        var obj = arr[i];
+        var note = new Note(obj.title, obj.content, obj.timestamp);
+        this.items.push(note);
+    }
+}
+
 Notes.prototype.getNote = function (timestamp) {
-    for (var i = 0; i < this.notes.length; i++) {
-        var note = this.notes[i];
+    for (var i = 0; i < this.items.length; i++) {
+        var note = this.items[i];
         if (note.timestamp == timestamp) {
             return note;
         }
@@ -18,16 +27,16 @@ Notes.prototype.getNote = function (timestamp) {
 };
 
 Notes.prototype.addNote = function (note) {
-    if (!note || this.notes.indexOf(note) >= 0) return false;
+    if (!note || this.items.indexOf(note) >= 0) return false;
 
-    this.notes.push(note);
+    this.items.unshift(note);
     return true;
 }
 
 Notes.prototype.removeNote = function (note) {
-    var i = this.notes.indexOf(note);
+    var i = this.items.indexOf(note);
     if (i >= 0) {
-        this.notes.splice(i, 1);
+        this.items.splice(i, 1);
         return true;
     }
     return false;
@@ -50,13 +59,13 @@ Notes.prototype.updateNote = function (sourceNote) {
 Notes.prototype.findNotes = function (text) {
     if (text) {
         var foundNotes = [];
-        for (var i = 0; i < this.notes.length; i++) {
-            var note = this.notes[i];
+        for (var i = 0; i < this.items.length; i++) {
+            var note = this.items[i];
             if (note.match(text)) {
                 foundNotes.push(note);
             }
         }
         return foundNotes;
     }
-    return this.notes;
+    return this.items;
 }

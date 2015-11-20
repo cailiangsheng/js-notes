@@ -8,15 +8,11 @@ function PersistedNotes() {
 PersistedNotes.prototype.readNotes = function () {
     var json = localStorage.getItem(NOTES_STORAGE_NAME);
     var arr = json ? JSON.parse(json) : [];
-    this.notes.clearNotes();
-    for (var i = 0; i < arr.length; i++) {
-        var obj = arr[i];
-        this.notes.createNote(obj.title, obj.content, obj.timestamp);
-    }
+    this.notes.initNotes(arr);
 };
 
 PersistedNotes.prototype.saveNotes = function () {
-    localStorage.setItem(NOTES_STORAGE_NAME, JSON.stringify(this.notes.notes));
+    localStorage.setItem(NOTES_STORAGE_NAME, JSON.stringify(this.notes.items));
 };
 
 PersistedNotes.prototype.deleteNote = function (note) {
