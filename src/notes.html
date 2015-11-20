@@ -7,8 +7,11 @@
 
     <script src="../node_modules/underscore/underscore-min.js"></script>
     <script src="../node_modules/angular/angular.min.js"></script>
+
+    <script src="js/note.js"></script>
     <script src="js/notes.js"></script>
-    <script src="js/storage.js"></script>
+    <script src="js/persistence.js"></script>
+    <script src="js/controller.js"></script>
 </head>
 <body>
     <div class="note-app">
@@ -20,12 +23,13 @@
             </li>
             <li class="note-item" ng-repeat="note in notes">
                 <span class="note-title-text">{{ note.title }}</span>
-                <input type="text" ng-model="note.title" class="note-title-edit" placeholder="Note title" ng-change="saveNote(note)">
+                <input type="text" ng-model="note.title" class="note-title-edit" placeholder="Note title" ng-change="updateNote(note)">
+
                 <span class="note-datetime-text">{{ getDateTime(note) }}</span>
                 <input type="button" value="x" class="note-delete-button" ng-click="deleteNote(note)">
 
                 <span class="note-content-text" ng-bind-html="note.content | toTextLines"></span>
-                <textarea class="note-content-edit" placeholder="Note content" ng-model="note.content" ng-change="saveNote(note)"></textarea>
+                <textarea class="note-content-edit" placeholder="Note content" ng-model="note.content" ng-change="updateNote(note)"></textarea>
             </li>
         </ul>
     </div>
