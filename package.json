@@ -4,5 +4,9 @@
   "description": "Notes demo implemented with AngularJS",
   "dependencies": {
     "angular": "1.4.x"
+  },
+  "devDependencies" : {
+    "chai": "*",
+    "mocha": "*"
   }
 }

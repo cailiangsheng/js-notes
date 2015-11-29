@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Notes Tests</title>
+
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+
+    <script src="../src/model/note.js"></script>
+    <script src="../src/model/notes.js"></script>
+    <script src="../src/model/persistence.js"></script>
+
+    <script>
+        mocha.setup("bdd");
+
+        window.onload = function () {
+            mocha.run();
+        }
+    </script>
+    <script src="test.js"></script>
+</head>
+<body>
+    <div id="mocha"></div>
+</body>
+</html>

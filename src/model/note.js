@@ -1,7 +1,7 @@
 
 function Note(title, content, timestamp) {
-    this.title = title;
-    this.content = content;
+    this.title = title || "";
+    this.content = content || "";
     this.timestamp = timestamp || this.getTimestamp();
 }
 
