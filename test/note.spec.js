@@ -22,12 +22,12 @@ describe("Note model", function () {
 
         expect(note1.title).to.equal("XYZ");
         expect(note2.content).to.equal("xyz");
-    })
+    });
 
     it("can be matched with a keyword", function () {
         var note = new Note("ABC", "abc");
 
         expect(note.match("c")).to.be.true;
         expect(note.match("x")).to.be.false;
-    })
+    });
 });
