@@ -7,11 +7,6 @@
     <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
     <script src="../node_modules/mocha/mocha.js"></script>
     <script src="../node_modules/chai/chai.js"></script>
-
-    <script src="../src/model/note.js"></script>
-    <script src="../src/model/notes.js"></script>
-    <script src="../src/model/persistence.js"></script>
-
     <script>
         var expect = chai.expect;
         mocha.setup("bdd");
@@ -20,6 +15,11 @@
             mocha.run();
         }
     </script>
+
+    <script src="../src/model/note.js"></script>
+    <script src="../src/model/notes.js"></script>
+    <script src="../src/model/persistence.js"></script>
+
     <script src="spec/note.spec.js"></script>
     <script src="spec/notes.spec.js"></script>
     <script src="spec/persistence.spec.js"></script>
