@@ -3,14 +3,16 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title ng-bind-template="{{ title }}"></title>
-    <link rel="stylesheet" href="view/notes.css">
 
     <script src="../node_modules/angular/angular.min.js"></script>
-    <script src="model/note.js"></script>
-    <script src="model/notes.js"></script>
-    <script src="model/persistence.js"></script>
-    <script src="controller.js"></script>
-    <script src="view/filter.js"></script>
+
+    <!-- build:[href]:dist notes.min.css -->
+    <link rel="stylesheet" href="notes.css">
+    <!-- /build -->
+
+    <!-- build:[src]:dist notes.min.js -->
+    <script src="notes.js"></script>
+    <!-- /build -->
 </head>
 <body>
     <div class="note-app">
