@@ -1,4 +1,8 @@
+const Notes = require('./notes');
+
 var NOTES_STORAGE_NAME = 'js-notes.notes';
+
+module.exports = PersistedNotes;
 
 function PersistedNotes() {
     this.notes = new Notes();
