@@ -1,16 +1,16 @@
-var Notes = require('../src/model/notes');
-var expect = require('chai').expect;
+const Notes = require('../src/model/notes');
+const expect = require('chai').expect;
 
-describe("Notes model", function () {
-    var notes = new Notes();
+describe("Notes model", () => {
+    const notes = new Notes();
 
-    it("is an empty array by default", function () {
+    it("is an empty array by default", () => {
         expect(notes.items).to.be.a("Array");
         expect(notes.items.length).to.equal(0);
     })
 
-    it("can be initialized with an array", function () {
-        var array = [
+    it("can be initialized with an array", () => {
+        const array = [
             {title: "ABC", content: "abc", timestamp: 123},
             {title: "XYZ", content: "xyz", timestamp: 789}
         ];
@@ -21,7 +21,7 @@ describe("Notes model", function () {
         expect(notes.items[1].content).to.equal("xyz");
     });
 
-    it("can be cleared", function () {
+    it("can be cleared", () => {
         notes.clearNotes();
 
         expect(notes.items.length).to.equal(0);
