@@ -1,3 +1,5 @@
+const PersistedNotes = require('./model/persistence');
+
 var notesApp = angular.module('notesApp', []);
 var KEY_CODE_ENTER = 13;
 
