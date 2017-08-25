@@ -1,3 +1,6 @@
+const Note = require('./note');
+
+module.exports = Notes;
 
 function Notes () {
     this.items = [];
