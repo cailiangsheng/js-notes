@@ -120,7 +120,7 @@ module.exports = function (grunt) {
             reporter: 'spec',
             grep: grunt.option('grep')
           },
-          src: ['./test/spec/*.js']
+          src: ['./test/*.js']
         }
       }
     }

@@ -1,4 +1,4 @@
-var Note = require('../../src/model/note');
+var Note = require('../src/model/note');
 var expect = require('chai').expect;
 
 describe("Note model", function () {
