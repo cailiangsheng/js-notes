@@ -1,6 +1,5 @@
 const Notes = require('./notes');
-
-var NOTES_STORAGE_NAME = 'js-notes.notes';
+const NOTES_STORAGE_NAME = 'js-notes.notes';
 
 module.exports = PersistedNotes;
 
@@ -10,8 +9,8 @@ function PersistedNotes() {
 }
 
 PersistedNotes.prototype.readNotes = function () {
-    var json = localStorage.getItem(NOTES_STORAGE_NAME);
-    var arr = json ? JSON.parse(json) : [];
+    const json = localStorage.getItem(NOTES_STORAGE_NAME);
+    const arr = json ? JSON.parse(json) : [];
     this.notes.initNotes(arr);
 };
 

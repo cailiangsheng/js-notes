@@ -12,16 +12,16 @@ Notes.prototype.clearNotes = function () {
 
 Notes.prototype.initNotes = function (arr) {
     this.clearNotes();
-    for (var i = 0; i < arr.length; i++) {
-        var obj = arr[i];
-        var note = new Note(obj.title, obj.content, obj.timestamp);
+    for (let i = 0; i < arr.length; i++) {
+        const obj = arr[i];
+        const note = new Note(obj.title, obj.content, obj.timestamp);
         this.items.push(note);
     }
 }
 
 Notes.prototype.getNote = function (timestamp) {
-    for (var i = 0; i < this.items.length; i++) {
-        var note = this.items[i];
+    for (let i = 0; i < this.items.length; i++) {
+        const note = this.items[i];
         if (note.timestamp == timestamp) {
             return note;
         }
@@ -37,7 +37,7 @@ Notes.prototype.addNote = function (note) {
 }
 
 Notes.prototype.removeNote = function (note) {
-    var i = this.items.indexOf(note);
+    const i = this.items.indexOf(note);
     if (i >= 0) {
         this.items.splice(i, 1);
         return true;
@@ -46,12 +46,12 @@ Notes.prototype.removeNote = function (note) {
 };
 
 Notes.prototype.createNote = function (title, content, timestamp) {
-    var note = new Note(title, content, timestamp);
+    const note = new Note(title, content, timestamp);
     this.addNote(note);
 };
 
 Notes.prototype.updateNote = function (sourceNote) {
-    var note = this.getNote(sourceNote.timestamp);
+    const note = this.getNote(sourceNote.timestamp);
     if (note) {
         note.update(sourceNote);
         return true;
@@ -61,9 +61,9 @@ Notes.prototype.updateNote = function (sourceNote) {
 
 Notes.prototype.findNotes = function (text) {
     if (text) {
-        var foundNotes = [];
-        for (var i = 0; i < this.items.length; i++) {
-            var note = this.items[i];
+        const foundNotes = [];
+        for (let i = 0; i < this.items.length; i++) {
+            const note = this.items[i];
             if (note.match(text)) {
                 foundNotes.push(note);
             }
