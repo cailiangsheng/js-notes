@@ -1,4 +1,6 @@
 
+module.exports = Note;
+
 function Note(title, content, timestamp) {
     this.title = title || "";
     this.content = content || "";
