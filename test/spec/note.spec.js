@@ -1,3 +1,6 @@
+var Note = require('../../src/model/note');
+var expect = require('chai').expect;
+
 describe("Note model", function () {
     it("has default values", function () {
         var note = new Note();
