@@ -1,4 +1,4 @@
-const Notes = require('./notes');
+var Notes = require('./notes');
 
 var NOTES_STORAGE_NAME = 'js-notes.notes';
 

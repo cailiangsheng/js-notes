@@ -1,4 +1,4 @@
-const Note = require('./note');
+var Note = require('./note');
 
 module.exports = Notes;
 

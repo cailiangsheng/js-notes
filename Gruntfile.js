@@ -13,9 +13,6 @@ module.exports = function (grunt) {
           browserifyOptions: {
             debug: true
           },
-          transform: [
-            'stringify'
-          ],
           external: [
             'angular'
           ]
@@ -28,9 +25,6 @@ module.exports = function (grunt) {
             browserifyOptions: {
               debug: true
             },
-            transform: [
-              'babelify'
-            ],
             watch: true
           }
         }

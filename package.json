@@ -8,7 +8,6 @@
   "devDependencies" : {
     "chai": "*",
     "mocha": "*",
-    "babelify": "7.2.0",
     "grunt": "~0.4.2",
     "grunt-browserify": "^4.0.0",
     "grunt-cli": "^0.1.13",
