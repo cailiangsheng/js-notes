@@ -4,7 +4,11 @@ const webpack = require('webpack');
 const NAME = 'notes';
 
 const webpackCommonConfig = {
-  entry: ['./src/controller.js', './src/view/notes.less'],
+  entry: [
+    './src/controller.js',
+    './src/view/filter.js',
+    './src/view/notes.less',
+  ],
   externals: {
     angular: 'angular'
   },
