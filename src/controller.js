@@ -5,22 +5,27 @@ const notesApp = angular.module('notesApp', []);
 
 notesApp.controller('initNotes', ['$scope', ($scope) => {
     const persistence = new PersistedNotes();
-    $scope.title = "Larry's Notes";
-    $scope.notes = persistence.notes.findNotes();
+    persistence.readNotes(showNotes);
 
-    $scope.fetchNotes = () => {
+    $scope.title = "Larry's Notes";
+
+    function showNotes(isAsync) {
         $scope.notes = persistence.notes.findNotes($scope.inputText);
+
+        if (isAsync) {
+            $scope.$apply();
+        }
     };
 
     $scope.createNote = () => {
         persistence.createNote($scope.inputText);
         $scope.inputText = '';
-        $scope.fetchNotes();
+        showNotes();
     };
 
     $scope.deleteNote = (note) => {
         persistence.deleteNote(note);
-        $scope.fetchNotes();
+        showNotes();
     };
 
     $scope.updateNote = (note) => {

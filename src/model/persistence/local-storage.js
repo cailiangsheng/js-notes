@@ -1,20 +1,9 @@
-const Notes = require('./notes');
+const Notes = require('../notes');
 const NOTES_STORAGE_NAME = 'js-notes.notes';
 
 module.exports = class PersistedNotes {
     constructor() {
         this.notes = new Notes();
-        this.readNotes();
-    }
-
-    readNotes() {
-        const json = localStorage.getItem(NOTES_STORAGE_NAME);
-        const arr = json ? JSON.parse(json) : [];
-        this.notes.initNotes(arr);
-    }
-
-    saveNotes() {
-        localStorage.setItem(NOTES_STORAGE_NAME, JSON.stringify(this.notes.items));
     }
 
     deleteNote(note) {
@@ -31,5 +20,16 @@ module.exports = class PersistedNotes {
     updateNote(note) {
         this.notes.updateNote(note);
         this.saveNotes();
+    }
+
+    readNotes(callback) {
+        const json = localStorage.getItem(NOTES_STORAGE_NAME);
+        const arr = json ? JSON.parse(json) : [];
+        this.notes.initNotes(arr);
+        callback && callback(false);
+    }
+
+    saveNotes() {
+        localStorage.setItem(NOTES_STORAGE_NAME, JSON.stringify(this.notes.items));
     }
 }
