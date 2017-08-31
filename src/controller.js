@@ -8,6 +8,7 @@ notesApp.controller('initNotes', ['$scope', ($scope) => {
     persistence.readNotes(showNotes);
 
     $scope.title = "Larry's Notes";
+    $scope.showNotes = showNotes;
 
     function showNotes(isAsync) {
         $scope.notes = persistence.notes.findNotes($scope.inputText);
