@@ -17,7 +17,7 @@ Notes.prototype.initNotes = function (arr) {
         var note = new Note(obj.title, obj.content, obj.timestamp);
         this.items.push(note);
     }
-}
+};
 
 Notes.prototype.getNote = function (timestamp) {
     for (var i = 0; i < this.items.length; i++) {
@@ -48,6 +48,7 @@ Notes.prototype.removeNote = function (note) {
 Notes.prototype.createNote = function (title, content, timestamp) {
     var note = new Note(title, content, timestamp);
     this.addNote(note);
+    return note;
 };
 
 Notes.prototype.updateNote = function (sourceNote) {
