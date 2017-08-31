@@ -5,22 +5,27 @@ var KEY_CODE_ENTER = 13;
 
 notesApp.controller('initNotes', ['$scope', function ($scope) {
     var persistence = new PersistedNotes();
-    $scope.title = "Larry's Notes";
-    $scope.notes = persistence.notes.findNotes();
+    persistence.readNotes(showNotes);
 
-    $scope.fetchNotes = function () {
+    $scope.title = "Larry's Notes";
+
+    function showNotes(isAsync) {
         $scope.notes = persistence.notes.findNotes($scope.inputText);
-    };
+
+        if (isAsync) {
+            $scope.$apply();
+        }
+    }
 
     $scope.createNote = function () {
         persistence.createNote($scope.inputText);
         $scope.inputText = '';
-        $scope.fetchNotes();
+        showNotes();
     };
 
     $scope.deleteNote = function (note) {
         persistence.deleteNote(note);
-        $scope.fetchNotes();
+        showNotes();
     };
 
     $scope.updateNote = function (note) {
