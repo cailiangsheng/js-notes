@@ -1,5 +1,5 @@
-const Notes = require('../src/model/notes');
-const expect = require('chai').expect;
+import Notes from '../src/model/notes';
+import { expect } from 'chai';
 
 describe("Notes model", () => {
     const notes = new Notes();

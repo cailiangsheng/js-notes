@@ -1,6 +1,6 @@
-const Note = require('./note');
+import Note from './note';
 
-module.exports = class Notes {
+export default class Notes {
     constructor() {
         this.items = [];
     }

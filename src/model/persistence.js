@@ -1,7 +1,8 @@
-const Notes = require('./notes');
+import Notes from './notes';
+
 const NOTES_STORAGE_NAME = 'js-notes.notes';
 
-module.exports = class PersistedNotes {
+export default class PersistedNotes {
     constructor() {
         this.notes = new Notes();
         this.readNotes();

@@ -1,4 +1,5 @@
-const PersistedNotes = require('./model/persistence');
+import PersistedNotes from './model/persistence';
+
 const KEY_CODE_ENTER = 13;
 
 const notesApp = angular.module('notesApp', []);

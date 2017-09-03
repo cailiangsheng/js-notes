@@ -34,7 +34,7 @@ const webpackCommonConfig = {
           disable: false,
           allChunks: false,
         }),
-      },
+      }
     ],
   },
   plugins: []
