@@ -1,5 +1,5 @@
-const Note = require('../src/model/note');
-const expect = require('chai').expect;
+import Note from '../src/model/note';
+import { expect } from 'chai';
 
 describe("Note model", () => {
     it("has default values", () => {

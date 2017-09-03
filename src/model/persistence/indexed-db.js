@@ -1,7 +1,7 @@
-const Notes = require('../notes');
-const dexieUtil = require('./dexie-util');
+import Notes from '../notes';
+import dexieUtil from './dexie-util';
 
-module.exports = class IndexedDBNotes {
+export default class IndexedDBNotes {
   constructor() {
     this.notes = new Notes();
   }

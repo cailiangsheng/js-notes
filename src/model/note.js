@@ -1,5 +1,5 @@
 
-module.exports = class Note {
+export default class Note {
     constructor(title, content, timestamp) {
         this.title = title || "";
         this.content = content || "";

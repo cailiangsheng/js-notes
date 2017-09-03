@@ -1,2 +1,4 @@
+import IndexedDBNotes from './indexed-db';
+import LocalStorageNotes from './local-storage';
 
-module.exports = require('./indexed-db');//require('./local-storage');
+export default IndexedDBNotes;

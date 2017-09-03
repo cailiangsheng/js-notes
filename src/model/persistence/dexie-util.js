@@ -1,16 +1,16 @@
-const Dexie = require('dexie');
+import Dexie from 'dexie';
 
 const NOTES_STORAGE_NAME = 'js-notes.notes';
 
 let db;
 
-module.exports = {
+export {
   loadNotes,
   clearNotes,
   loadNote,
   deleteNote,
   saveNote
-}
+};
 
 function getDB() {
   if (!db) {

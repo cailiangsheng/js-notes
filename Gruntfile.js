@@ -4,7 +4,6 @@ module.exports = function (grunt) {
   grunt.registerTask('test', ['mochaTest:test'])
   grunt.registerTask('default', ['build', 'test'])
 
-
   grunt.initConfig({
       pkg: grunt.file.readJSON('package.json'),
 
@@ -118,6 +117,7 @@ module.exports = function (grunt) {
         test: {
           options: {
             reporter: 'spec',
+            require: 'babel-register',
             grep: grunt.option('grep')
           },
           src: ['./test/*.js']
