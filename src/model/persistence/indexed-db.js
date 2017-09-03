@@ -1,5 +1,5 @@
 import Notes from '../notes';
-import dexieUtil from './dexie-util';
+import { deleteNote, saveNote, loadNotes } from './dexie-util';
 
 export default class IndexedDBNotes {
   constructor() {
@@ -8,25 +8,25 @@ export default class IndexedDBNotes {
 
   deleteNote(note) {
     if (this.notes.removeNote(note)) {
-      dexieUtil.deleteNote(note.timestamp);
+      deleteNote(note.timestamp);
     }
   }
 
   createNote(title) {
     const note = this.notes.createNote(title);
-    dexieUtil.saveNote(note);
+    saveNote(note);
   }
 
   updateNote(note) {
-    dexieUtil.deleteNote(note.timestamp);
+    deleteNote(note.timestamp);
     this.notes.updateNote(note);
-    dexieUtil.saveNote(note);
+    saveNote(note);
   }
 
   readNotes(callback) {
     const notes = this.notes;
 
-    dexieUtil.loadNotes(value => {
+    loadNotes(value => {
       notes.initNotes(value);
       callback && callback(true);
     })
