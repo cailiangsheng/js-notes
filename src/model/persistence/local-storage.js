@@ -2,7 +2,7 @@ import Notes from '../notes';
 
 const NOTES_STORAGE_NAME = 'js-notes.notes';
 
-module.exports = class PersistedNotes {
+export default class LocalStorageNotes {
     constructor() {
         this.notes = new Notes();
     }
