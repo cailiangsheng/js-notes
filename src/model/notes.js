@@ -47,6 +47,7 @@ export default class Notes {
     createNote(title, content, timestamp) {
         const note = new Note(title, content, timestamp);
         this.addNote(note);
+        return note;
     }
 
     updateNote(sourceNote) {
