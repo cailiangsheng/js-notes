@@ -1,5 +1,6 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const NAME = 'notes';
 
@@ -57,6 +58,11 @@ const webpackDevConfig = Object.assign(newWebpackConfig(false), {
     new ExtractTextPlugin({
       filename: `${NAME}.css`,
     }),
+    new HtmlWebpackPlugin({
+      filename: 'notes.html',
+      template: 'src/notes.html',
+      inject: 'head',
+    }),
   ],
   devtool: '#inline-source-map',
 });
@@ -73,6 +79,15 @@ const webpackProdConfig = Object.assign(newWebpackConfig(true), {
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
       compress: { warnings: false },
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'notes.min.html',
+      template: 'src/notes.html',
+      inject: 'head',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true
+      },
     }),
   ],
 });
