@@ -1,4 +1,5 @@
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
@@ -55,6 +56,14 @@ const webpackDevConfig = Object.assign(newWebpackConfig(false), {
     filename: `${NAME}.js`,
   },
   plugins: [
+    new CleanWebpackPlugin(
+      ['dist/*'],
+      {
+        root: __dirname,
+        verbose: true,
+        dry: false
+      }
+    ),
     new ExtractTextPlugin({
       filename: `${NAME}.css`,
     }),
