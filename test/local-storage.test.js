@@ -2,7 +2,7 @@ import Note from '../src/model/note';
 import LocalStorageNotes from '../src/model/persistence/local-storage';
 import assert from 'assert';
 
-describe('persistence.local-storage', () => {
+describe('model.persistence.LocalStorageNotes', () => {
   let notes;
 
   before(() => {
@@ -10,13 +10,13 @@ describe('persistence.local-storage', () => {
   })
 
   beforeEach(() => {
-    global.localStorage.init({
+    localStorage.init({
       'js-notes.notes': '[{"title":"Title1","content":"Content1","timestamp":1},{"title":"Title2","content":"Content2","timestamp":2}]'
     });
     notes = new LocalStorageNotes();
   })
 
-  it('reads the saved notes', (done) => {
+  it('can read the saved notes', (done) => {
     notes.readNotes(() => {
       assert.equal(notes.notes.items.length, 2);
 
@@ -35,7 +35,7 @@ describe('persistence.local-storage', () => {
     })
   })
 
-  it('delete and save notes', (done) => {
+  it('can delete and save notes', (done) => {
     notes.readNotes(() => {
       assert.equal(notes.notes.items.length, 2);
 
@@ -45,13 +45,13 @@ describe('persistence.local-storage', () => {
 
       // then
       assert.equal(notes.notes.items.length, 1);
-      assert.equal(global.localStorage.storage['js-notes.notes'], '[{"title":"Title2","content":"Content2","timestamp":2}]');
+      assert.equal(localStorage.storage['js-notes.notes'], '[{"title":"Title2","content":"Content2","timestamp":2}]');
 
       done();
     })
   })
 
-  it('create and save notes', (done) => {
+  it('can create and save notes', (done) => {
     notes.readNotes(() => {
       assert.equal(notes.notes.items.length, 2);
 
@@ -61,7 +61,7 @@ describe('persistence.local-storage', () => {
       // then
       assert.equal(notes.notes.items.length, 3);
       assert.equal(
-        global.localStorage.storage['js-notes.notes'],
+        localStorage.storage['js-notes.notes'],
         `[{"title":"Title3","content":"","timestamp":${notes.notes.items[0].timestamp}},{"title":"Title1","content":"Content1","timestamp":1},{"title":"Title2","content":"Content2","timestamp":2}]`
       );
 
@@ -69,7 +69,7 @@ describe('persistence.local-storage', () => {
     })
   })
 
-  it('update and save notes', (done) => {
+  it('can update and save notes', (done) => {
     notes.readNotes(() => {
       assert.equal(notes.notes.items.length, 2);
 
@@ -80,7 +80,7 @@ describe('persistence.local-storage', () => {
       // then
       assert.equal(notes.notes.items.length, 2);
       assert.equal(
-        global.localStorage.storage['js-notes.notes'],
+        localStorage.storage['js-notes.notes'],
         `[{"title":"Title1","content":"Content1","timestamp":1},{"title":"NewTitle","content":"NewContent","timestamp":${notes.notes.items[1].timestamp}}]`
       );
 
