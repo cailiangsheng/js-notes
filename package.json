@@ -5,22 +5,20 @@
   "dependencies": {
     "angular": "1.4.x"
   },
-  "devDependencies" : {
-    "chai": "*",
-    "mocha": "*",
+  "devDependencies": {
+    "chai": "^4.1.2",
     "dexie": "^1.5.1",
-    "grunt": "~0.4.2",
-    "grunt-browserify": "^4.0.0",
-    "grunt-cli": "^0.1.13",
-    "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-cssmin": "^0.12.3",
-    "grunt-contrib-handlebars": "1.0.0",
-    "grunt-contrib-less": "^1.0.1",
-    "grunt-contrib-uglify": "^0.9.1",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-processhtml": "~0.3.3",
-    "grunt-contrib-htmlmin": "~0.2.0",
-    "grunt-eslint": "^17.1.0",
-    "grunt-mocha-test": "^0.12.7"
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-html-minify": "0.0.14",
+    "gulp-less": "^3.3.2",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-mocha": "^4.3.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-useref": "^3.1.2",
+    "mocha": "^3.5.3",
+    "run-sequence": "^2.1.0"
   }
 }
