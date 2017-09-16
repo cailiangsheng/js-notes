@@ -4,7 +4,8 @@ var rename = require('gulp-rename');
 var clean = require('gulp-clean');
 var less = require('gulp-less');
 var cssmin = require('gulp-minify-css');
-var browserify = require('gulp-browserify');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
 var useref = require('gulp-useref');
 var htmlmin = require('gulp-html-minify');
@@ -48,14 +49,18 @@ gulp.task('cssmin', function () {
 });
 
 gulp.task('browserify', function () {
-	return gulp.src(['src/controller.js', 'src/view/filter.js'])
-		.pipe(browserify({
-      debug: true,
-      external: [
-        'angular'
-      ]
-		}))
-		.pipe(rename('notes.js'))
+	return browserify({
+			entries: [
+                'src/controller.js',
+                'src/view/filter.js'
+            ],
+			external: [
+			    'angular'
+			],
+            debug: true
+		})
+		.bundle()
+		.pipe(source('notes.js'))
 		.pipe(gulp.dest('dist/'));
 });
 
