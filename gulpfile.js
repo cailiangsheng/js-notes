@@ -9,7 +9,7 @@ var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
 var useref = require('gulp-useref');
 var htmlmin = require('gulp-html-minify');
-var mochaTest = require('gulp-mocha');
+var mocha = require('gulp-mocha');
 
 gulp.task('default', function (callback) {
 	runSequence('build', 'test', callback);
@@ -97,7 +97,7 @@ gulp.task('htmlmin', function () {
 
 gulp.task('test', function () {
 	gulp.src('test/*.test.js')
-		.pipe(mochaTest({
+		.pipe(mocha({
 			reporter: 'spec'
 		}));
 });
