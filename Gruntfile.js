@@ -4,7 +4,6 @@ module.exports = function (grunt) {
   grunt.registerTask('test', ['mochaTest:test'])
   grunt.registerTask('default', ['build', 'test'])
 
-
   grunt.initConfig({
       pkg: grunt.file.readJSON('package.json'),
 
