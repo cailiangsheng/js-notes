@@ -28,13 +28,13 @@ gulp.task('js', function (callback) {
 });
 
 gulp.task('html', function (callback) {
-	runSequence('useref:html', 'useref:htmlmin', 'htmlmin', callback);
+	runSequence(['useref:html', 'useref:htmlmin'], 'htmlmin', callback);
 });
 
 gulp.task('clean', function () {
 	return gulp.src('dist/**/*')
 		.pipe(clean());
-})
+});
 
 gulp.task('less', function () {
 	return gulp.src('src/view/notes.less')
@@ -72,7 +72,7 @@ gulp.task('uglify', function () {
 gulp.task('useref:html', function () {
 	return gulp.src('src/notes.html')
 		.pipe(useref({
-			searchPath: 'dist',
+			noAssets: true,
 			noconcat: true
 		}))
 		.pipe(gulp.dest('dist/'));
@@ -80,10 +80,10 @@ gulp.task('useref:html', function () {
 
 gulp.task('useref:htmlmin', function () {
 	return gulp.src('src/notes.html')
-		.pipe(rename('notes.min.html'))
 		.pipe(useref({
-			searchPath: 'dist'
+			noAssets: true
 		}))
+		.pipe(rename('notes.min.html'))
 		.pipe(gulp.dest('dist/'));
 });
 
