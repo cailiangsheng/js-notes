@@ -16,23 +16,25 @@ gulp.task('default', function (callback) {
 });
 
 gulp.task('build', function (callback) {
-	runSequence(
-		'clean',
-		'less',
-		'cssmin',
-		'browserify',
-		'uglify',
-		'useref:html',
-		'useref:htmlmin',
-		'htmlmin',
-		callback
-	);
+	runSequence('clean', ['css', 'js', 'html'], callback);
+});
+
+gulp.task('css', function (callback) {
+	runSequence('less', 'cssmin', callback);
+});
+
+gulp.task('js', function (callback) {
+	runSequence('browserify', 'uglify', callback);
+});
+
+gulp.task('html', function (callback) {
+	runSequence(['useref:html', 'useref:htmlmin'], 'htmlmin', callback);
 });
 
 gulp.task('clean', function () {
 	return gulp.src('dist/**/*')
 		.pipe(clean());
-})
+});
 
 gulp.task('less', function () {
 	return gulp.src('src/view/notes.less')
@@ -50,14 +52,9 @@ gulp.task('cssmin', function () {
 
 gulp.task('browserify', function () {
 	return browserify({
-			entries: [
-                'src/controller.js',
-                'src/view/filter.js'
-            ],
-			external: [
-			    'angular'
-			],
-            debug: true
+			entries: ['src/controller.js', 'src/view/filter.js'],
+			external: ['angular'],
+      debug: true
 		})
 		.bundle()
 		.pipe(source('notes.js'))
@@ -74,7 +71,7 @@ gulp.task('uglify', function () {
 gulp.task('useref:html', function () {
 	return gulp.src('src/notes.html')
 		.pipe(useref({
-			searchPath: 'dist',
+			noAssets: true,
 			noconcat: true
 		}))
 		.pipe(gulp.dest('dist/'));
@@ -82,10 +79,10 @@ gulp.task('useref:html', function () {
 
 gulp.task('useref:htmlmin', function () {
 	return gulp.src('src/notes.html')
-		.pipe(rename('notes.min.html'))
 		.pipe(useref({
-			searchPath: 'dist'
+			noAssets: true
 		}))
+		.pipe(rename('notes.min.html'))
 		.pipe(gulp.dest('dist/'));
 });
 
