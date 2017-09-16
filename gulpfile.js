@@ -16,17 +16,19 @@ gulp.task('default', function (callback) {
 });
 
 gulp.task('build', function (callback) {
-	runSequence(
-		'clean',
-		'less',
-		'cssmin',
-		'browserify',
-		'uglify',
-		'useref:html',
-		'useref:htmlmin',
-		'htmlmin',
-		callback
-	);
+	runSequence('clean', ['css', 'js', 'html'], callback);
+});
+
+gulp.task('css', function (callback) {
+	runSequence('less', 'cssmin', callback);
+});
+
+gulp.task('js', function (callback) {
+	runSequence('browserify', 'uglify', callback);
+});
+
+gulp.task('html', function (callback) {
+	runSequence('useref:html', 'useref:htmlmin', 'htmlmin', callback);
 });
 
 gulp.task('clean', function () {
