@@ -1,0 +1,9 @@
+{
+    "require": [
+        "babel-register",
+        "babel-polyfill"
+    ],
+    "sourceMap": false,
+    "instrument": false,
+    "all": false
+}

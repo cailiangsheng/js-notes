@@ -1,4 +1,4 @@
-import Notes from '../src/model/notes';
+import Notes from './notes';
 import { expect } from 'chai';
 
 describe('model.Notes', () => {

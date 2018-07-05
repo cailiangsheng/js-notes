@@ -1,5 +1,5 @@
-import Note from '../src/model/note';
-import LocalStorageNotes from '../src/model/persistence/local-storage';
+import Note from '../note';
+import LocalStorageNotes from './local-storage';
 import assert from 'assert';
 
 describe('model.persistence.LocalStorageNotes', () => {
