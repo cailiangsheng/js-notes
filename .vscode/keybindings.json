@@ -1,0 +1,9 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+	{
+		"key": "ctrl+t",
+		"command": "workbench.action.tasks.runTask",
+		"args": "runCurrentTest",
+		"when": "editorTextFocus"
+	}
+]
