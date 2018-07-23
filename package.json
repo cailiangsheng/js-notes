@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Notes demo implemented with AngularJS",
   "scripts": {
-    "test": "mocha --compilers js:babel-register",
+    "test": "mocha --require babel-register",
     "coverage": "cross-env BABEL_ENV=test nyc mocha",
     "coverage:report": "cross-env BABEL_ENV=test nyc --reporter=lcov --report-dir=./coverage mocha",
     "test:all": "npm run test ./src/**/*.test.js",
