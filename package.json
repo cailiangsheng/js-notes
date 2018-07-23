@@ -9,7 +9,7 @@
     "test:all": "npm run test ./src/**/*.test.js",
     "coverage:all": "npm run coverage ./src/**/*.test.js",
     "coverage:report:all": "npm run coverage:report ./src/**/*.test.js",
-    "prepublish": "npm run build && npm run coverage:report",
+    "prepublish": "npm run coverage:report:all && npm run build",
     "build": "webpack",
     "develop": "webpack --watch"
   },
