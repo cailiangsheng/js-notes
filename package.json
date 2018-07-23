@@ -3,9 +3,12 @@
   "version": "0.0.1",
   "description": "Notes demo implemented with AngularJS",
   "scripts": {
-    "test": "mocha --compilers js:babel-register ./src/**/*.test.js",
-    "coverage": "cross-env BABEL_ENV=test nyc mocha ./src/**/*.test.js",
-    "coverage:report": "cross-env BABEL_ENV=test nyc --reporter=lcov --report-dir=./coverage mocha ./src/**/*.test.js",
+    "test": "mocha --compilers js:babel-register",
+    "coverage": "cross-env BABEL_ENV=test nyc mocha",
+    "coverage:report": "cross-env BABEL_ENV=test nyc --reporter=lcov --report-dir=./coverage mocha",
+    "test:all": "npm run test ./src/**/*.test.js",
+    "coverage:all": "npm run coverage ./src/**/*.test.js",
+    "coverage:report:all": "npm run coverage:report ./src/**/*.test.js",
     "prepublish": "npm run build && npm run coverage:report",
     "build": "webpack",
     "develop": "webpack --watch"
